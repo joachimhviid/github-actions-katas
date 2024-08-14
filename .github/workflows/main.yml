@@ -10,9 +10,9 @@ jobs:
       - run: ci/build-app.sh
       - name: Test
         run: ci/unit-test-app.sh
-      - name: Upload a Build Artifact # Name of the step
-        uses: actions/upload-artifact@v4 # Action to use
-        with: # Parameters for the action
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v4
+        with:
           name: code
           path: .
   Lint:
@@ -25,7 +25,7 @@ jobs:
           name: code 
           path: .
       - name: Run linting
-        uses: super-linter/super-linter/slim
+        uses: super-linter/super-linter/slim@main
         env: 
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
